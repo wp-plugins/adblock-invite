@@ -21,17 +21,21 @@ function adblockInviteScriptFooter(){
 	?>
 	<script language="JavaScript" type="text/javascript" src="<?php echo plugins_url('testads/banners.js', __FILE__); ?>"></script>
 	<script language="JavaScript" type="text/javascript">
+		function widgetAdlblockInviteID(tag) {
+                        var regexpParam=/adblock_invite_widget-*/;
+                        var tagParam=tag;
+                        tagParam = (tagParam === undefined) ? '*' : tagParam;
+                        var elementsTable = new Array();
+                        for(var i=0 ; i<document.getElementsByTagName(tagParam).length ; i++) {
+                                if(document.getElementsByTagName(tagParam)[i].id && document.getElementsByTagName(tagParam)[i].id.match(regexpParam)) {
+                                        document.getElementsByTagName(tagParam)[i].style.display='block';
+                                }
+                        }
+		}
 		var divAds = document.getElementById("adstest");
 		if(divAds) {
-            var regexpParam=/adblock_invite_widget-*/;
-            var tagParam="aside";  
-            tagParam = (tagParam === undefined) ? '*' : tagParam;  
-            var elementsTable = new Array();  
-            for(var i=0 ; i<document.getElementsByTagName(tagParam).length ; i++) {  
-                if(document.getElementsByTagName(tagParam)[i].id && document.getElementsByTagName(tagParam)[i].id.match(regexpParam)) {  
-                    document.getElementsByTagName(tagParam)[i].style.display='block';
-                }  
-            }  
+			widgetAdlblockInviteID('div');
+			widgetAdlblockInviteID('aside');
 		}
 	</script>
 	<?php
