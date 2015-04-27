@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: Adblock invite (Yes Adblock)
 Plugin URI: http://adblock-invite.zici.fr
